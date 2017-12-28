@@ -114,7 +114,7 @@ var GetTokenHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Reque
 
 	/* Set token claims */
 	claims["admin"] = true
-	claims["name"] = "Ado Kukic"
+	claims["name"] = "Demo Users"
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
 
 	/* Sign the token with our secret */
