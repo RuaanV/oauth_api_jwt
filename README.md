@@ -31,10 +31,10 @@ Refer to auth0-implementation to get the code, secrets and ids are avaiable on r
 <img width="1456" alt="screen shot 2017-12-29 at 11 53 10" src="https://user-images.githubusercontent.com/676905/34436848-5739d9ec-ec91-11e7-99a2-c6e3f64f89a7.png">
 
 ### JWT Inspection 
-Access Token
+ID Token
 <img width="1190" alt="jwt2" src="https://user-images.githubusercontent.com/676905/34437172-f3db0800-ec93-11e7-8bb0-9fdd5f1d1966.png">
 
-ID Token
+Access Token
 <img width="1305" alt="jwt1" src="https://user-images.githubusercontent.com/676905/34437174-f3f01a2e-ec93-11e7-9a65-ffd90aa87463.png">
 
 ### Logging Console output for Requests 
