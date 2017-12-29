@@ -17,7 +17,7 @@ go build main.go
 ## Getting the Product List with a signed Bearer Token
 <img width="1248" alt="screen shot 2017-12-28 at 12 56 35" src="https://user-images.githubusercontent.com/676905/34411477-be71f4c8-ebce-11e7-956c-b087c9632a73.png">
 
-##Auth0 Implementation 
+## Auth0 Implementation 
 
 Refer to auth0-implementation to get the code, secrets and ids are avaiable on request
 
