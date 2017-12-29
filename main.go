@@ -3,15 +3,18 @@ package main
 // Import our dependencies. We'll use the standard http library as well as the gorilla router for this app
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"time"
 
+	"github.com/auth0-community/auth0"
 	jwtmiddleware "github.com/auth0/go-jwt-middleware"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	jose "gopkg.in/square/go-jose.v2"
 )
 
 /*Product We will first create a new type called Product
@@ -49,8 +52,8 @@ func main() {
 	// /products - which will retrieve a list of products that the user can leave feedback on
 	// /products/{slug}/feedback - which will capture user feedback on products
 	r.Handle("/status", StatusHandler).Methods("GET")
-	r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
-	r.Handle("/products/{slug}/feedback", jwtMiddleware.Handler(AddFeedbackHandler)).Methods("POST")
+	r.Handle("/products", authMiddleware(ProductsHandler)).Methods("GET")
+	r.Handle("/products/{slug}/feedback", authMiddleware(AddFeedbackHandler)).Methods("POST")
 
 	//Token Handler
 	r.Handle("/get-token", GetTokenHandler).Methods("GET")
@@ -103,6 +106,28 @@ var AddFeedbackHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 		w.Write([]byte("Product Not Found"))
 	}
 })
+
+func authMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		secret := []byte("api secret")
+		secretProvider := auth0.NewKeyProvider(secret)
+		audience := []string{"http://localhost:3000/"}
+
+		configuration := auth0.NewConfiguration(secretProvider, audience, "https://riverisland.eu.auth0.com/", jose.HS256)
+		validator := auth0.NewValidator(configuration)
+
+		token, err := validator.ValidateRequest(r)
+
+		if err != nil {
+			fmt.Println(err)
+			fmt.Println("Token is not valid:", token)
+			w.WriteHeader(http.StatusUnauthorized)
+			w.Write([]byte("Unauthorized"))
+		} else {
+			next.ServeHTTP(w, r)
+		}
+	})
+}
 
 /*GetTokenHandler Handlers */
 var GetTokenHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
