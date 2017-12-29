@@ -21,7 +21,7 @@ go build main.go
 
 ## Auth0 Implementation 
 
-Refer to auth0-implementation to get the code, secrets and ids are avaiable on request for the team
+Refer to branch: auth0-implementation to get the code, secrets and ids are avaiable on request for the team
 
 ### Start page
 <img width="1404" alt="screen shot 2017-12-29 at 11 52 38" src="https://user-images.githubusercontent.com/676905/34436807-158e8cc2-ec91-11e7-9a9b-ee9859271c3b.png">
