@@ -39,6 +39,9 @@ ID Token
 Access Token
 <img width="1305" alt="jwt1" src="https://user-images.githubusercontent.com/676905/34437174-f3f01a2e-ec93-11e7-9a65-ffd90aa87463.png">
 
+### Proxy Inspection
+<img width="1398" alt="screen shot 2017-12-29 at 12 59 28" src="https://user-images.githubusercontent.com/676905/34437694-62e6ac64-ec98-11e7-9b77-a9747765579c.png">
+
 ### Logging Console output for Requests 
 <img width="1424" alt="screen shot 2017-12-29 at 12 03 06" src="https://user-images.githubusercontent.com/676905/34436901-d968b744-ec91-11e7-8830-305cca8aafdc.png">
 
