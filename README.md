@@ -4,6 +4,8 @@ Demonstration of securing APIs in Golang with JWT frameworks
 Frameworks utilised
 - https://github.com/dgrijalva/jwt-go
 - https://github.com/auth0/go-jwt-middleware
+- https://github.com/square/go-jose
+- https://github.com/auth0-community/auth0
 
 ## To run the Sample
 ```bash
